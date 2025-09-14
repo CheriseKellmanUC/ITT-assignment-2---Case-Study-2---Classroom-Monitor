@@ -1,0 +1,23 @@
+1.	Input 1: Room capacity – set capacity and monitor via student checking in, checking out
+2.	Process: 
+-	Add student to room capacity count, if checking in
+-	Remove student from room capacity count, if checking out
+-	Compare to room capacity
+3.	Output: 
+-	Show current room capacity
+-	Display alert if room full
+4.	Input 2: Projector status
+5.	Process: 
+-	Display projector status
+-	Check if projector on or off
+6.	Output: 
+-	If projector is turned on, turn it off
+-	If projector is turned off, turn it on
+7.	Input 3: Temperature - set parameters, (Temperature must be between 16 and 28 C only)
+8.	Process: 
+-	Read room temperature
+9.	Output:
+-	Display alert if temperature >28C
+-	Display alert if temperature <16C
+10.	Process: Collate data
+11.	Output: Generate report show room status
