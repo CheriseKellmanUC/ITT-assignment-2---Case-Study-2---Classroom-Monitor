@@ -1,0 +1,177 @@
+#Student name Cherise Kellman
+#Student ID u3167327
+#13 September 2025
+
+## Creating a Smart Classroom Monitor
+
+max_capacity = 25
+
+# Created set for student names
+
+student_names = set()
+
+room_state = {"projector_on": False, "capacity": 0, "topic": "no topic set"}
+
+temperature_log = [22]
+
+total_checkins = 0
+
+total_checkouts = 0
+
+projector_turnons = 0
+
+old_topic = str()
+
+# Display menu on start
+
+def show_menu():
+    print("Hello, this is the current room status.")
+    print("The current topic is: ", room_state['topic'])
+    print("There are currently this many students checked-in: ", room_state['capacity'])
+    print("The current status of the projector is: ", room_state['projector_on'])
+    if temperature_log:
+        print("The last recorded room temperature was:", temperature_log[-1])
+    else:
+        print("No temperature has been recorded yet.")
+    print("To set a new topic, press 't'.")
+    print("To check-in press 'i', to check-out press 'o'.")
+    print("To turn the projector on or off, press 'p'.")
+    print("To show list of students currently checked in, press 'L'.")
+    print("To show report stats from last time, press 'r'.")
+    print("To set the temperature, enter a number.")
+    response = input()
+    if response.lower() == "t":
+        subject = input("Please enter today's topic: ")
+        current_topic(subject)
+    elif response.lower() == "i":
+        name = input("Please enter your name to check-in: ")
+        update_room_capacity(name, "Check-in")
+    elif response.lower() == "o":
+        name = input("Please enter your name to check-out: ")
+        update_room_capacity(name, "Check-out")
+    elif response.lower() == "l":
+        student_list()
+    elif response.lower() == "p":
+        toggle_projector()
+    elif response.lower() == "r":
+        generate_report()
+    else:
+        try:
+            temperature = float(response)
+            check_temperature(temperature)
+        except:
+            print("Please enter a valid value, response must be 't', 'i', 'o', 'L', 'p', 'r' or a valid number.")
+                       
+            
+#Defining topic function
+
+def current_topic(subject):
+    global old_topic
+    old_topic = room_state['topic']
+    room_state['topic'] = subject
+    
+#Defining function to show list of students
+
+def student_list():
+    print(student_names)
+    
+
+# Create function to monitor capacity
+
+def update_room_capacity(student_name, action):
+    student_name = student_name.lower()
+    if action == "Check-in":
+        try:
+            if room_state['capacity'] >= max_capacity:
+                print("This room is FULL! Student cannot check in.")
+                return
+            if student_name not in student_names:
+                student_names.add(student_name)
+                room_state['capacity'] += 1 #add to room_state amount
+                global total_checkins
+                total_checkins += 1
+            else:
+                print("This student is already checked in.")
+        except:
+            print("Your check-in failed")
+        return
+    elif action == "Check-out":
+        try:
+            student_names.remove(student_name)
+            room_state['capacity'] -= 1 #remove from room_state amount
+            global total_checkouts
+            total_checkouts += 1
+        except:
+            print("Student not checked in.")
+        return
+        
+    print("The current room capacity is: ", room_state['capacity'])
+              
+     
+# Create function to monitor equipment status
+
+def toggle_projector():
+    if room_state['projector_on']:
+        room_state['projector_on'] = False
+        print("The projector has been turned off.")
+    
+    else:
+        room_state['projector_on'] = True 
+        print("The projector has been turned on.")
+        global projector_turnons
+        projector_turnons += 1
+       
+#Monitoring temperature
+
+def check_temperature(current_temp):
+    global temperature_log
+
+    # Check if temperature is within safe ranges
+    if current_temp < 16:
+        print("The current temperature is too low:", current_temp, "C")
+    elif current_temp > 28:
+        print("The current temperature is too high:", current_temp, "C")
+    else:
+        print("The current temperature is within safe range:", current_temp, "C")
+
+    # Store temperature to temperature log
+    
+    temperature_log.append(current_temp)
+
+    return current_temp    
+        
+ # Generate weekly report
+
+def generate_report():
+    global total_checkins
+    global total_checkouts
+    global projector_turnons
+    global temperature_log
+    print("Stats since last report")
+    print("The last topic was: ", old_topic)
+    print("The total check-ins were: ", total_checkins)
+    print("The total check-outs were: ", total_checkouts)
+    print("The project was turned on", projector_turnons, "times")
+    print("The temperature data since last report was: ", temperature_log)
+    
+    # Store readings to compute statistics
+
+    min_temp = min(temperature_log)
+    max_temp = max(temperature_log)
+    ave_temp = sum(temperature_log) / len(temperature_log)
+
+    # Display temperature statistics
+
+    print(f"Min temperature so far: {min_temp} C")
+    print(f"Max temperature so far: {max_temp} C")
+    print(f"Average temperature: {ave_temp:.2f} C")
+
+    total_checkins = 0
+    total_checkouts = 0
+    projector_turnons = 0
+    temperature_log.clear()
+    temperature_log.append(22)
+    return
+    
+while True:
+    show_menu()
