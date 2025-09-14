@@ -1,0 +1,29 @@
+-	Start program
+-	Display current topic, room capacity, projector status and temperature
+-	Function, ask for current topic.
+-	Function, update room capacity
+-	Start loop
+-	Store student names.
+-	If student name not in current count, add to room capacity 
+-	Else if checking out, then remove from capacity
+-	Show count of current room capacity  number students currently in room
+-	If current room capacity is full, then display alert “room full”
+-	Else continue
+-	Function, toggle projector, on or off
+-	End function
+-	Function, temperature monitoring
+-	Start loop
+-	If temperature < 16, trigger alert – temperature too low
+-	Else if temperature > 28, trigger alert – temperature too high
+-	Else, display message – temperature is within safe range
+-	Store to temperature log
+-	End function
+-	Function, generate report
+-	Display, stats since room last used.
+-	Display last topic
+-	Display total check-ins
+-	Display total check-outs
+-	Display how many times projector was turned on or off
+-	Display temperature log
+-	End function
+-	Return to display
