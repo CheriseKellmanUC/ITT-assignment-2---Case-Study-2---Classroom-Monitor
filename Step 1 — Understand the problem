@@ -1,0 +1,2 @@
+This is a Smart Classroom Monitor program which keeps track of room occupancy via student check-ins and check-outs, monitors the status of the projector, and logs temperature data. 
+The program will generate a report summarising room capacity, projector status and temperature readings.
