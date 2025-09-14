@@ -1,0 +1,2 @@
+Inputs: room capacity, equipment status, room temperature
+Outputs: current capacity, current equipment status, alerts (capacity full, equipment not operational, temperature <16 or >28), weekly report
