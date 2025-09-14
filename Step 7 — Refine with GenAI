@@ -1,0 +1,11 @@
+Student prompt to Copilot:
+“Hey there copilot, can you suggest improvements to my classroom monitor code. Please keep the program structure and explain changes.”
+Copilot Response:
+ 
+ 
+ Please see documents uploaded to canvas for copilot response
+ 
+ 
+ 
+Student reflection:
+I didn’t realise I had not updated the print line for “check-outs” so I fixed that in my code. I like the suggestion for the temperature in number 3; however, I could not get that to work in my tests so I had to enter an average “22” to get my code to work. I am however, looking forward to fixing it one day. I also liked the suggesting for show_menu() to include a print statement for the temperature range. And I liked the suggestion at number 6 to add an exit option. I think these suggestions are all doable, however I need to keep practising. I would like to create a GUI for this code as well someday- hopefully soon.
