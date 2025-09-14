@@ -1,0 +1,262 @@
+8 test cases, please see documents uploaded to canvas for screenshots of tests 1 to 6.
+
+Test Case #1
+- Handwritten expectation: Check if project is turned on or off
+- Input(s): False, 1, “on”
+- Workings: entered test line in IDLE as room_state.projector_on = False
+- Expected output: return True or False
+- Program run (screenshot or transcript):
+ 
+- Actual output: error messages
+Result: Failed, updated code to give place holder values “room_state = {"projector_on": False, "capacity": 0, "topic": "no topic set"}” and ran tests again
+Test Case #2
+Handwritten expectation: Check if temperature log was storing temperature data
+- Input(s): A number for the room temperature
+- Workings: Ran in idle and entered a number 
+- Expected output: display temperature
+- Program run (screenshot or transcript):
+  
+- Actual output: error messages
+Result: Failed, displayed error message. Changed code from temperature_log.add() to temperature_log.append()
+Test Case #3
+- Handwritten expectation: Check if program works properly to catch if student already signed in
+- Input(s): The same name twice
+- Workings: Ran in idle and entered the same name 2 times
+- Expected output: display “This student is already checked-in.”
+- Program run (screenshot or transcript):
+ 
+- Actual output: Allowed the same student to sign in twice
+- Result: Failed, program added student to count twice. Add additional “try” to update_room_capacity function.
+Test Case #4
+- Handwritten expectation: Catch if the same student is signing in using uppercase
+- Input(s): Name in all lowercase and name in uppercase
+- Workings:Testing code by inputting two names, once in lowercase and again with an uppercase letter
+- Expected output: Print “This student is already checked in.”
+- Program run (screenshot or transcript):
+ 
+
+- Actual output: Program printed “This student is already checked in.”
+Result: Pass, updated code when it was counting the same twice, also included “student_name.lower()” for the “try” in update_room_capacity function.
+Test Case #5
+- Handwritten expectation: Display report
+- Input(s): ‘r’ to display statistic report from monitor
+- Workings: type ‘r’ into input
+- Expected output: Display report for the room status
+- Program run (screenshot or transcript):
+ 
+- Actual output: Error message, program did not store temperature data.
+Result: Fail. Edited check_temperature function and added “global”.
+Test Case #6
+- Handwritten expectation: Program to run as expected, display report, store temperature data and display a current topic.
+- Input(s):Names, temperatures, topic
+- Workings: Typed names into program, added a topic and temperature inputs
+- Expected output: Store data and display report when typed ‘r’.
+- Program run (screenshot or transcript):
+ 
+- Actual output: Report was displayed with stored data.
+Result: Pass. Program worked as expected, added the current_topic function to display current topic, changed ‘l” to “L” to make instructions clearer.
+Test Case #7
+- Handwritten expectation: Program to run as expected, display report showing temperature log with min, max and ave temperatures.
+- Input(s): 15, 30, 22, turned projector on, entered a topic, request report
+- Workings: Typed temperatures, toggled projector, entered a topic and requested a printed report.
+- Expected output: Store all data and display report with min, max and ave temps when typed ‘r’.
+- Program run (screenshot or transcript):
+Transcript:
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+15
+The current temperature is too low: 15.0 C
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  False
+The last recorded room temperature was: 15.0
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+30
+The current temperature is too high: 30.0 C
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  False
+The last recorded room temperature was: 30.0
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+22
+The current temperature is within safe range: 22.0 C
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  False
+The last recorded room temperature was: 22.0
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+p
+The projector has been turned on.
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  True
+The last recorded room temperature was: 22.0
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+t
+Please enter today's topic: Cats
+Hello, this is the current room status.
+The current topic is:  Cats
+There are currently this many students checked-in:  0
+The current status of the projector is:  True
+The last recorded room temperature was: 22.0
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+r
+Stats since last report
+The last topic was:  no topic set
+The total check-ins were:  0
+The total check-ins were:  0
+The project was turned on 1 times
+The temperature data since last report was:  [22, 15.0, 30.0, 22.0]
+Min temperature so far: 15.0 C
+Max temperature so far: 30.0 C
+Average temperature: 22.25 C
+Hello, this is the current room status.
+The current topic is:  Cats
+There are currently this many students checked-in:  0
+The current status of the projector is:  True
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+- Actual output: Report was displayed with stored data.
+Result: Pass. Program worked as expected and displayed min, max and ave temperatures.
+Test Case #8
+- Handwritten expectation: Check if room does not let students check in if capacity full.
+- Input(s): Names
+- Workings: Changed room capacity to 5 and input 6 names.
+- Expected output: Display message “This room is FULL! Student cannot check in.”
+- Program run (screenshot or transcript):
+ Transcript:
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  0
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: tim
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  1
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: ben
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  2
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: lily
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  3
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: sophie
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  4
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: ron
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  5
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+i
+Please enter your name to check-in: harry
+This room is FULL! Student cannot check in.
+Hello, this is the current room status.
+The current topic is:  no topic set
+There are currently this many students checked-in:  5
+The current status of the projector is:  False
+The last recorded room temperature was: 22
+To set a new topic, press 't'.
+To check-in press 'i', to check-out press 'o'.
+To turn the projector on or off, press 'p'.
+To show list of students currently checked in, press 'L'.
+To show report stats from last time, press 'r'.
+To set the temperature, enter a number.
+- Actual output: Program displayed “This room is FULL! Student cannot check in.”
+Result: Pass. Program worked as expected
